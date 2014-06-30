@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products
+    body:
+      encoding: UTF-8
+      string: '{"description":"Test description","name":"Test","price":25.5,"short_description":"Test
+        short description","sku":"simple4f5490f31959f","status":1,"attribute_set_id":4,"stock_data":{"is_in_stock":0,"is_qty_decimal":0,"manage_stock":1,"qty":1},"tax_class_id":"2","type_id":"simple","use_config_gift_message_available":0,"visibility":"4","weight":125}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '347'
+      Authorization:
+      - OAuth oauth_body_hash="kktQMHw60WwqReJxoaGy6EYakaY%3D", oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010",
+        oauth_nonce="o2N6G5gNSkfOCtOg4JlmHyEQc85Tog9Sy0XjC457n0M", oauth_signature="uGtPZd6hblA88Klue5HvGWEJnHc%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1404164449", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 30 Jun 2014 21:40:49 GMT
+      Server:
+      - Apache
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=6vf0ub9br3fkfj5ilrucs7qe51; expires=Mon, 30-Jun-2014 22:40:50 GMT;
+        path=/sb_magento; domain=www.jayzheng.com; HttpOnly
+      Content-Length:
+      - '392'
+      Content-Type:
+      - text/html; charset=iso-8859-1
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>404 Not Found</title>
+        </head><body>
+        <h1>Not Found</h1>
+        <p>The requested URL /index.php was not found on this server.</p>
+        <p>Additionally, a 404 Not Found
+        error was encountered while trying to use an ErrorDocument to handle the request.</p>
+        <hr>
+        <address>Apache Server at www.jayzheng.com Port 80</address>
+        </body></html>
+    http_version: 
+  recorded_at: Mon, 30 Jun 2014 21:40:51 GMT
+recorded_with: VCR 2.5.0

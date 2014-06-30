@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010", oauth_nonce="qyVmVVmbWYHIbl8uYZmd83guMWQ0Zc5z86wO9t0VvY",
+        oauth_signature="QQJ3faYPsMd2njqX1svY1TiEdnk%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1404161922", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 30 Jun 2014 20:58:42 GMT
+      Server:
+      - Apache
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=494hp0ok6k9q3an3mkpulvoc65; expires=Mon, 30-Jun-2014 21:58:43 GMT;
+        path=/sb_magento; domain=www.jayzheng.com; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '20'
+      Connection:
+      - close
+      Content-Type:
+      - text/html
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 30 Jun 2014 20:58:51 GMT
+recorded_with: VCR 2.5.0

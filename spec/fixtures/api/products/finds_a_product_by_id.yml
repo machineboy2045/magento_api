@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010", oauth_nonce="lbRhh33F4RSHhcFZASEdktDyVMfcfWUhtSsfuiTDSLs",
+        oauth_signature="Z45fYjL1EAZF6F1miiTLxzSSFfA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1404161385", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 30 Jun 2014 20:49:45 GMT
+      Server:
+      - Apache
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=u3htarn3fi2anpu68kg3dt2sb7; expires=Mon, 30-Jun-2014 21:49:45 GMT;
+        path=/sb_magento; domain=www.jayzheng.com; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '585'
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"entity_id":"1","attribute_set_id":"4","type_id":"simple","sku":"frb666","name":"Limited
+        Edition Killer Instinct Furby","url_key":"limited-edition-killer-instinct-furby","country_of_manufacture":null,"msrp_enabled":"2","msrp_display_actual_price_type":"4","meta_title":null,"meta_description":null,"custom_design":null,"page_layout":null,"options_container":"container1","gift_message_available":null,"weight":"100.0000","price":"1000.0000","special_price":null,"msrp":null,"status":"1","visibility":"4","tax_class_id":"0","description":"Welcome
+        to hell","short_description":"Fun for the whole family","meta_keyword":null,"custom_layout_update":null,"news_from_date":null,"news_to_date":null,"special_from_date":null,"special_to_date":null,"custom_design_from":null,"custom_design_to":null,"group_price":[],"tier_price":[],"stock_data":{"qty":"0.0000","min_qty":"0.0000","use_config_min_qty":"1","is_qty_decimal":"0","backorders":"0","use_config_backorders":"1","min_sale_qty":"1.0000","use_config_min_sale_qty":"1","max_sale_qty":"0.0000","use_config_max_sale_qty":"1","is_in_stock":"0","notify_stock_qty":null,"use_config_notify_stock_qty":"1","manage_stock":"0","use_config_manage_stock":"1","use_config_qty_increments":"1","qty_increments":"0.0000","use_config_enable_qty_inc":"1","enable_qty_increments":"0","is_decimal_divided":"0"}}'
+    http_version: 
+  recorded_at: Mon, 30 Jun 2014 20:49:46 GMT
+recorded_with: VCR 2.5.0

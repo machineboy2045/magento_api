@@ -1,0 +1,6 @@
+require 'oauth'
+require 'json'
+require 'rest-client'
+require 'magento/api'
+require 'magento/resource'
+require 'magento/version'

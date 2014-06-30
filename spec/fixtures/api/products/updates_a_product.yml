@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products/5
+    body:
+      encoding: UTF-8
+      string: '{"id":5,"stock_data":{"qty":10}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '32'
+      Authorization:
+      - OAuth oauth_body_hash="hz6VowlkOKMotWJS8z3gTKPavgQ%3D", oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010",
+        oauth_nonce="ZlFtOHZ0tXXrTZFEJlyoO8mHdM4N2CT8GgVFtB7Mzk", oauth_signature="oyTKTY0EMRCIC%2Bf%2Byg5W1X44IzI%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1404165193", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 30 Jun 2014 21:53:13 GMT
+      Server:
+      - Apache
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=ltn2fl2jtm39tq027higdeh8q6; expires=Mon, 30-Jun-2014 22:53:14 GMT;
+        path=/sb_magento; domain=www.jayzheng.com; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '20'
+      Content-Type:
+      - text/html
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 30 Jun 2014 21:53:15 GMT
+recorded_with: VCR 2.5.0

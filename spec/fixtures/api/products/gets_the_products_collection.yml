@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010", oauth_nonce="1BJiBsmfq39IP2AnNAX8VZRmYU2SER9dUnJziNoCw",
+        oauth_signature="syEOLCIect2DVmTQkcHMGyjM2Z8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1404161384", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 30 Jun 2014 20:49:44 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '408'
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"1":{"entity_id":"1","attribute_set_id":"4","type_id":"simple","sku":"frb666","status":"1","visibility":"4","tax_class_id":"0","weight":"100.0000","price":"1000.0000","special_price":null,"msrp":null,"name":"Limited
+        Edition Killer Instinct Furby","url_key":"limited-edition-killer-instinct-furby","country_of_manufacture":null,"msrp_enabled":"2","msrp_display_actual_price_type":"4","meta_title":null,"meta_description":null,"custom_design":null,"page_layout":null,"options_container":"container1","gift_message_available":null,"news_from_date":null,"news_to_date":null,"special_from_date":null,"special_to_date":null,"custom_design_from":null,"custom_design_to":null,"description":"Welcome
+        to hell","short_description":"Fun for the whole family","meta_keyword":null,"custom_layout_update":null}}'
+    http_version: 
+  recorded_at: Mon, 30 Jun 2014 20:49:45 GMT
+recorded_with: VCR 2.5.0
