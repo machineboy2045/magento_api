@@ -1,130 +1,39 @@
-Magento API V2 - Ruby Client
+Magento REST API - Ruby Client
 ================================
 
-[![Gem Version](https://badge.fury.io/rb/magento.png)](https://rubygems.org/gems/magento)
-[![Build Status](https://travis-ci.org/magento/magento-api-ruby.png?branch=master)](https://travis-ci.org/magento/magento-api-ruby)
-[![Dependency Status](https://gemnasium.com/magento/magento-api-ruby.png?travis)](https://gemnasium.com/magento/magento-api-ruby)
-[![Code Climate](https://codeclimate.com/github/magento/magento-api-ruby.png)](https://codeclimate.com/github/magento/magento-api-ruby)
-[![Coverage Status](https://coveralls.io/repos/magento/magento-api-ruby/badge.png?branch=master)](https://coveralls.io/r/magento/magento-api-ruby?branch=master)
 
 This library provides a wrapper around the Magento REST API for use within
-Ruby apps or via the console.
+Ruby apps.
 
-Note
-----
-If you find anything that is missing or needs clean up, please feel free to fork
-it and submit a changes with your pull request.
+### OAuth
+The easiest way to obtain credentials is to use one of the Omniauth Ruby gems: [gem1](https://github.com/Contiamo/omniauth-magento) [gem2](https://github.com/Zookal/omniauth-magento). 
 
-Requirements
-------------
+### Configuring Magento
+@michaelimstepf has included some [detailed instructions](https://github.com/Zookal/omniauth-magento) with his gem.
 
-- Ruby 1.9+
 
-To connect to the API, you need the following credentials:
-
-- Secure URL pointing to a Magento store
-- Username of an authorized admin user of the store
-- API key for the user
-
-A valid API key is required to authenticate requests. To grant API access for a
-user, go to Control Panel > Users > Edit User and make sure that the
-'Enable API access?' checkbox is ticked.
-
-Installation
-------------
-
-Download the lib folder and copy it to a path accessible within your app, or
-install the package directly from Rubygems:
-
+### Usage
 ```
-gem install magento
-```
+#initialize
+config = {
+  consumer_key:       'YOUR_CONSUMER_KEY',
+  consumer_secret:    'YOUR_CONSUMER_SECRET',
+  site:               'HTTP://WWW.YOURSITE.COM', #omit the trailing slash
+  oauth_token:        'YOUR_OAUTH_TOKEN',
+  oauth_token_secret: 'YOUR_TOKEN_SECRET',
+}
 
-Note that the RubyGems version of this gem might be outdated. You can install the
-gem directly from this repo. If you are using Rails, you can point your Gemfile
-to this git repo directly or do a local install of the gem by -
+api = Magento::Api.new(config)
 
-```
-rake build
-gem install pkg/magento-*.gem
-```
+#list
+products = api.products.all({page: 2})
 
-Configuration
--------------
+#update
+api.product.update({id: 4, description:"even cooler than before"})
 
-To use the API client in your Ruby code, provide the required credentials as
-follows:
+#delete
+api.product.delete(4)
 
-```
-require 'magento'
-
-api = Magento::Api.new({
-	:store_url => "https://store.mymagento.com",
-	:username  => "admin",
-	:api_key   => "d81aada4c19c34d913e18f07fd7f36ca"
-})
-```
-
-If you want to enable SSL certificates -
-
-```
-require 'magento'
-api = Magento::Api.new({
-	:store_url => "https://store.mymagento.com",
-	:username  => "admin",
-	:api_key   => "d81aada4c19c34d913e18f07fd7f36ca"
-	:ssl_client_cert  =>  OpenSSL::X509::Certificate.new(File.read("cert.pem")),
-  	:ssl_client_key   =>  OpenSSL::PKey::RSA.new(File.read("key.pem"), "passphrase, if any"),
-  	:ssl_ca_file      =>  "ca_certificate.pem",
-  	:verify_ssl       =>  OpenSSL::SSL::VERIFY_PEER
-})
-```
-Remember that the fields `:ssl_client_cert`, `:ssl_client_key`, `:ssl_ca_file`
-and `:verify_ssl` are all required when enabling SSL certificates.
-
-Connecting to the store
------------------------
-
-Ping the time method to check that your configuration is working and you
-can connect successfully to the store:
-
-```
-ping = api.time
-```
-
-Usage
------
-
-The API object acts as a gateway to all top level resources in the V2 API.
-
-Fetch Data
-```
-orders = api.orders
-orders = api.orders({:min_id=>100,:max_id=>101})
-orders = api.orders(:is_deleted => true)
-
-products = api.products
-products = api.products(:description=>"iphone", :condition=>"New")
-
-options = api.options
-options = api.options(:type=>"MT")
-...
-
-```
-Create Data
-```
-api.create_products({:name => "Spiderman - The best return",:price => 9.99,:categories => [17],:type =>"physical",:availability => "available", :weight => 1})
-
-api.update_products(31,{:name => "marvel comics spiderman",:sku => "marvel-spidey-1", :inventory_tracking => "simple", :inventory_level => 500})
-
-api.update_orders(101,{:status_id => 12, :is_deleted => true})
-
-```
-Update Data
-
-```
-api.update_products(31,{:name => "marvel comics spiderman",:sku => "marvel-spidey-1", :inventory_tracking => "simple", :inventory_level => 500})
-
-api.update_optionsets(13,{:name => "Marvel toys"})
-
+#custom call
+products = api.connection.get('/api/rest/products/7/images')
 ```
