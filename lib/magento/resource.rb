@@ -49,15 +49,13 @@ module Magento
     end
 
     def response_handler
-      response     = yield
-      code         = response.code
-      code_type    = response.code_type
-      body         = response.body
-      content_type = response.content_type
+      response = yield
+      body     = response.body
 
+      #throw error if not success
       response.error! unless response.kind_of? Net::HTTPSuccess
 
-      if content_type == 'application/json'
+      if response.content_type == 'application/json'
         JSON.parse(body)
       elsif body.respond_to?(:to_hash)
         body.to_hash
