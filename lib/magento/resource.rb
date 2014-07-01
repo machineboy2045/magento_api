@@ -1,9 +1,16 @@
 module Magento
   class Resource
 
-    def initialize resource_name, connection
+    def initialize(connection, url, id = nil)
       @connection = connection
-      @url = "/api/rest/#{resource_name}"
+      @url = url
+      @id = id
+    end
+
+    #child resources
+    def method_missing(meth, id = nil)
+      child_url = @url + "/#{@id}/#{meth}"
+      Magento::Resource.new(@connection, child_url, id)
     end
 
     def all(params = {})
@@ -14,8 +21,7 @@ module Magento
 
     def update(hash)
       response_handler do
-        id = hash['id'] || hash[:id]
-        @connection.put("#{@url}/#{id}", hash.to_json, { 'Content-Type' => 'application/json' })
+        @connection.put("#{@url}/#{@id}", hash.to_json, { 'Content-Type' => 'application/json' })
       end
     end
 
@@ -30,15 +36,15 @@ module Magento
 
     end
 
-    def find(id)
+    def load
       response_handler do
-        @connection.get("#{@url}/#{id}")
+        @connection.get("#{@url}/#{@id}")
       end
     end
 
-    def delete(id)
+    def delete
       response_handler do
-        @connection.delete("#{@url}/#{id}")
+        @connection.delete("#{@url}/#{@id}")
       end
     end
 

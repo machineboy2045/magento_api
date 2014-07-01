@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.jayzheng.com/sb_magento/api/rest/products/5/images/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="1c5669e2a3114edf8cc73573c3b71010", oauth_nonce="aHcmVK4zI6UuyKUkd9YPOEMDfq6II7mLCMRfjc2XY",
+        oauth_signature="mG3wci1MAMNDaf92PcYJTSZNmM8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1404184718", oauth_token="881acaefa956bc82630c1d91b1e3a126",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 01 Jul 2014 03:18:38 GMT
+      Server:
+      - Apache
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=jp5gvghp68in5skg0ej1u07ps5; expires=Tue, 01-Jul-2014 04:18:40 GMT;
+        path=/sb_magento; domain=www.jayzheng.com; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '86'
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"messages":{"error":[{"code":404,"message":"Product image not found"}]}}'
+    http_version: 
+  recorded_at: Tue, 01 Jul 2014 03:18:40 GMT
+recorded_with: VCR 2.5.0

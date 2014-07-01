@@ -9,13 +9,12 @@ module Magento
       #generate oauth v1 access token from config
       access_token = prepare_access_token()
 
-
-      #use RestClient resource style
       @connection = access_token
     end
 
-    def method_missing(meth, *args)
-      Magento::Resource.new(meth, @connection)
+    def method_missing(meth, id = nil)
+      url = "/api/rest/#{meth}"
+      Magento::Resource.new(@connection, url, id)
     end
 
     private

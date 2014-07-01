@@ -9,12 +9,12 @@ describe "/api/products" do
   end
 
   it "finds a product by id", :vcr do
-    product = api.products.find('1')
+    product = api.products(1).load
     product['name'].should == 'Limited Edition Killer Instinct Furby'
   end
 
   it "deletes a product by id", :vcr do
-    response = api.products.delete('1')
+    response = api.products(1).delete
     response.should == nil
   end
 
@@ -51,7 +51,17 @@ describe "/api/products" do
         qty: 10
       }
     }
-    response = api.products.update(hash)
+    response = api.products(5).update(hash)
+    response.should == nil
+  end
+
+  it "gets images for a product", :vcr do
+    response = api.products(5).images.all
+    response.should == []
+  end
+
+  it "finds a product image", :vcr do
+    response = api.products(5).images(1).load
     response.should == nil
   end
 
