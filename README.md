@@ -6,7 +6,9 @@ This library provides a wrapper around the Magento REST API for use within
 Ruby apps.
 
 ### OAuth
-The easiest way to obtain credentials is to use one of the Omniauth Ruby gems: [gem1](https://github.com/Contiamo/omniauth-magento) [gem2](https://github.com/Zookal/omniauth-magento). 
+The easiest way to obtain credentials is to use one of the Omniauth Ruby gems: 
+* [gem1](https://github.com/Contiamo/omniauth-magento) 
+* [gem2](https://github.com/Zookal/omniauth-magento). 
 
 ### Configuring Magento
 @michaelimstepf has included some [detailed instructions](https://github.com/Zookal/omniauth-magento) with his gem.
