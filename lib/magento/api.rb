@@ -5,6 +5,7 @@ module Magento
 
     def initialize(config = {})
       @config = config
+      @base_url = '/api/rest/'
 
       #generate oauth v1 access token from config
       access_token = prepare_access_token()
@@ -12,10 +13,61 @@ module Magento
       @connection = access_token
     end
 
-    def method_missing(meth, id = nil)
-      url = "/api/rest/#{meth}"
-      Magento::Resource.new(@connection, url, id)
+
+    def get(resource_url, params = {}, options = {})
+      url = @base_url + resource_url
+      url += '?' + params.to_param if params.any?
+
+      response_handler { @connection.get(url, options) }
     end
+
+
+
+    def post(resource_url, params = {}, options = {})
+      url     = @base_url + resource_url
+      options = options.merge!({ 'Content-Type' => 'application/json' })
+      params  = params.to_json
+
+      response_handler { @connection.post(url, params, options) }
+    end
+
+
+
+    def put(resource_url, params = {}, options = {})
+      url     = @base_url + resource_url
+      params  = params.to_json
+      options = options.merge({ 'Content-Type' => 'application/json' })
+
+      response_handler { @connection.put(url, params, options) }
+    end
+
+
+
+    def delete(resource_url, options = {})
+      url = @base_url + resource_url
+
+      response_handler { @connection.delete(url, options) }
+    end
+
+
+
+    def response_handler
+      response = yield
+      body     = response.body
+
+      #throw error if not success
+      response.error! unless response.kind_of? Net::HTTPSuccess
+
+      if response.content_type == 'application/json'
+        JSON.parse(body)
+      elsif body.respond_to?(:to_hash)
+        body.to_hash
+      else
+        body
+      end
+    end
+
+
 
     private
 

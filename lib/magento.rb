@@ -1,5 +1,4 @@
 require 'oauth'
 require 'json'
-require 'magento/resource'
 require 'magento/api'
 require 'magento/version'

@@ -4,17 +4,17 @@ describe "/api/products" do
   include_context "integration"
 
   it "gets the products collection", :vcr do
-    products = api.products.all
+    products = api.get('products')
     products['1']['name'].should == 'Limited Edition Killer Instinct Furby'
   end
 
   it "finds a product by id", :vcr do
-    product = api.products(1).load
+    product = api.get('products/1')
     product['name'].should == 'Limited Edition Killer Instinct Furby'
   end
 
   it "deletes a product by id", :vcr do
-    response = api.products(1).delete
+    response = api.delete('products/1')
     response.should == nil
   end
 
@@ -40,7 +40,7 @@ describe "/api/products" do
       weight: 125
     }
 
-    response = api.products.create(hash)
+    response = api.post('products', hash)
     response.should == nil
   end
 
@@ -51,17 +51,17 @@ describe "/api/products" do
         qty: 10
       }
     }
-    response = api.products(5).update(hash)
+    response = api.put('products/5', hash)
     response.should == nil
   end
 
   it "gets images for a product", :vcr do
-    response = api.products(5).images.all
+    response = api.get('products/5/images')
     response.should == []
   end
 
   it "finds a product image", :vcr do
-    response = api.products(5).images(1).load
+    response = api.get('products/5/images/1')
     response.should == nil
   end
 
