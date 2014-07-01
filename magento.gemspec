@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "magento.gemspec",
     "./lib/magento.rb",
     "./lib/magento/api.rb",
+    "./lib/magento/resource.rb",
     "./lib/magento/version.rb",
     "./lib/magento.rb",
     "./spec/integration/products_spec.rb",
