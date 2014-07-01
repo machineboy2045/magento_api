@@ -27,14 +27,23 @@ config = {
 
 api = Magento::Api.new(config)
 
-#list
+#resource collection
 products = api.products.all({page: 2})
 
+#single resource
+product = products(4).load
+
 #update
-api.product.update({id: 4, description:"even cooler than before"})
+api.products(4).update({description:"even cooler than before"})
 
 #delete
-api.product.delete(4)
+api.products(4).delete
+
+#child resource collection
+api.products(4).images.all
+
+#update child resource
+api.products(4).images(2).update({...})
 
 #custom call
 products = api.connection.get('/api/rest/products/7/images')
