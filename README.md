@@ -28,23 +28,24 @@ config = {
 api = Magento::Api.new(config)
 
 #resource collection
-products = api.products.all({page: 2})
+products = api.get('products', {page: 2})
 
 #single resource
-product = products(4).load
+product = api.get('products/4')
 
 #update
-api.products(4).update({description:"even cooler than before"})
+api.put('products/4', {description:"even cooler than before"})
 
 #delete
-api.products(4).delete
+api.delete('products/4')
 
 #child resource collection
-api.products(4).images.all
+api.get('products/4/images')
 
 #update child resource
-api.products(4).images(2).update({...})
+api.put('products/4/images/2', {...})
 
-#custom call
-products = api.connection.get('/api/rest/products/7/images')
 ```
+
+### Testing
+Set `ENV['HTTP_DEBUG'] = 'true'` to get a better idea of what's happening uner the hood.
